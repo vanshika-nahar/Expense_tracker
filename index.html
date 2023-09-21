@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="expense_tracker_logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mooli&family=Quicksand:wght@400;500;600;700&family=Skranji:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Expense Tracker</title>
+    <style>
+      body {
+        overflow-x: hidden;
+        width: 100vw;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background: linear-gradient(
+          145deg,
+          #3333cc,
+          #b3d1ff,
+          #0000ff,
+          #d1b3ff,
+          #0033cc,
+          #751aff
+        );
+        background-size: cover;
+        animation: gradient 10s ease infinite;
+      }
+
+      @keyframes gradient {
+        0% {
+          background: linear-gradient(
+            145deg,
+            #3333cc,
+            #b3d1ff,
+            #0000ff,
+            #d1b3ff,
+            #0033cc,
+            #751aff
+          );
+        }
+        20% {
+          background: linear-gradient(
+            145deg,
+            #751aff,
+            #3333cc,
+            #b3d1ff,
+            #0000ff,
+            #d1b3ff,
+            #0033cc
+          );
+        }
+        40% {
+          background: linear-gradient(
+            145deg,
+            #0033cc,
+            #751aff,
+            #3333cc,
+            #b3d1ff,
+            #0000ff,
+            #d1b3ff
+          );
+        }
+        60% {
+          background: linear-gradient(
+            145deg,
+            #d1b3ff,
+            #0033cc,
+            #751aff,
+            #3333cc,
+            #b3d1ff,
+            #0000ff
+          );
+        }
+        80% {
+          background: linear-gradient(
+            145deg,
+            #0000ff,
+            #d1b3ff,
+            #0033cc,
+            #751aff,
+            #3333cc,
+            #b3d1ff
+          );
+        }
+        100% {
+          background: linear-gradient(
+            145deg,
+            #b3d1ff,
+            #0000ff,
+            #d1b3ff,
+            #0033cc,
+            #751aff,
+            #3333cc
+          );
+        }
+      }
+      nav {
+        background-color: #ffffff;
+        padding: 10px 30px;
+        height: 80px;
+      }
+      nav div {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+
+      nav img {
+        width: 150px;
+        height: auto;
+      }
+
+      nav h3 {
+        font-family: Quicksand, sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: #000000;
+      }
+
+      #main-Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 88vh;
+        background-color: transparent;
+      }
+
+      #tracker {
+        background-color: rgba(255, 255, 255, 0.927);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        width: 600px;
+        margin-inline: 10px;
+      }
+
+      #tracker h1 {
+        font-family: "Mooli", cursive;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: -15px;
+        margin-top: 5px;
+      }
+      #tracker h5 {
+        font-family: "Quicksand", cursive;
+        /* font-size: 3rem; */
+        font-weight: 700;
+      }
+      #tracker p {
+        font-family: "Quicksand", cursive;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      label {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 600;
+      }
+
+      input[type="number"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      ul li {
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: 700;
+      }
+      @media screen and (max-width: 768px) {
+        nav img {
+        width: 120px;
+        height: auto;
+      }
+        nav h3 {
+          font-size: 16px;
+          position: absolute;
+          top: -10;
+          left: 100;
+          bottom: 0;
+          right: 0;
+          width: 40%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <img src="EXPENSE TRACKER_logo.png" alt="logo" />
+        <h3>Developer : Vanshika Nahar</h3>
+      </div>
+    </nav>
+    <br />
+    <div id="main-Container">
+      <div id="tracker">
+        <h1>Expense Tracker</h1>
+        <br />
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="budget" type="number" class="validate" />
+            <label for="budget">Your Budget</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s5">
+            <input id="expense-name" type="text" class="validate" />
+            <label for="expense-name">Expense Name</label>
+          </div>
+          <div class="input-field col s5">
+            <input id="expense-amt" type="number" class="validate" />
+            <label for="expense-amt">Expense Amount</label>
+          </div>
+          <div class="col s2">
+            <a
+              id="add-expense"
+              style="background-color: #3333cc"
+              class="btn-floating btn-large waves-effect waves-light"
+              ><i class="material-icons">add</i></a
+            >
+          </div>
+        </div>
+        <div class="row">
+          <h5>Expense List :</h5>
+          <ul id="expenses"></ul>
+        </div>
+        <div class="row">
+          <h5>Expense Summary</h5>
+          <p>Total Expenses : <span id="total-expense">₹0.00</span></p>
+        </div>
+        <div class="row">
+          <h5>Budget Amount Left :</h5>
+          <p id="budget-amt-left"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const yourBudget = document.getElementById("budget");
+      const expenseName = document.getElementById("expense-name");
+      const expenseAmount = document.getElementById("expense-amt");
+      const addExpenseBtn = document.getElementById("add-expense");
+      const expenseList = document.getElementById("expenses");
+      const totalExpense = document.getElementById("total-expense");
+
+      let expenses = [];
+
+      addExpenseBtn.addEventListener("click", () => {
+        const budget = parseFloat(yourBudget.value);
+        const name = expenseName.value.trim();
+        const amount = parseFloat(expenseAmount.value);
+
+        if (
+          name === "" ||
+          isNaN(budget) ||
+          isNaN(amount) ||
+          budget < 0 ||
+          amount <= 0
+        ) {
+          alert("Please enter a valid budget, name, and amount.");
+          return;
+        } else {
+          expenses.push({ name, amount });
+          updateExpenseList();
+          updateTotalExpense(budget);
+
+          expenseName.value = "";
+          expenseAmount.value = "";
+        }
+      });
+
+      const updateExpenseList = () => {
+        expenseList.innerHTML = "";
+        expenses.forEach((expense, index) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${expense.name} : ₹${expense.amount.toFixed(
+            2
+          )}`;
+          listItem.style.fontFamily = "Quicksand";
+          expenseList.appendChild(listItem);
+        });
+      };
+
+      const updateTotalExpense = (budget) => {
+        const total = expenses.reduce(
+          (acc, expense) => acc + expense.amount,
+          0
+        );
+        totalExpense.textContent = `₹${total.toFixed(2)}`;
+        const budgetLeft = budget - total;
+        const budgetLeftElement = document.getElementById("budget-amt-left");
+        if (budgetLeftElement) {
+          budgetLeftElement.textContent = `₹${budgetLeft.toFixed(2)}`;
+        }
+      };
+    </script>
+  </body>
+</html>
